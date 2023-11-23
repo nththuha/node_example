@@ -1,5 +1,5 @@
-const express = require('express');
-const userRouter = require('./routes/user.route');
+import express from 'express';
+import userRouter from './routes/user.route';
 
 const app = express();
 const port = 8080;

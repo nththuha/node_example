@@ -1,5 +1,4 @@
 services:
-  # PostgreSQL service
   db:
     image: postgres:latest
     environment:
@@ -7,23 +6,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
     ports:
-      - "5433:5432"
+      - 5433:5432
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  # Node.js (Express) service
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     DATABASE_URL: postgresql://postgres:123@db:5432//node_example
-  #   ports:
-  #     - "8080:8080"
-  #   volumes:
-  #     - .:/usr/src/app
+      - pg_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+  pg_data:
